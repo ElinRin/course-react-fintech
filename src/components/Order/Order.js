@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../Button/Button'
 
 export default class Order extends React.Component {
   constructor() {
@@ -41,7 +42,7 @@ export default class Order extends React.Component {
       <input type="text" name='type' value={this.state.type} onChange={this.handleInputChange} placeholder='Тип'  required/>
       <input type="text" name='title' value={this.state.title} onChange={this.handleInputChange} placeholder='Название' required/>
       <input type="text" name='price' value={this.state.price} onChange={this.handleInputChange} placeholder='Цена' required/>
-      <button type='submit'>Отправить</button>
+      <Button type='submit'>Отправить</Button>
     </form>
   }
 }

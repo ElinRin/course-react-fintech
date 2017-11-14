@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default ({ title, price }) => (
+import Money from '../Money/Money';
+
+export default ({ title, price, type }) => (
   <div>
-    <b>{title}</b> - {price} рублей
+    <b>{type}</b>: <b>{title}</b> - <Money value={price}></Money>
   </div>
 );

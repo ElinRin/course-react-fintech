@@ -22,8 +22,6 @@ const Money = ({value, currency}) => {
             {currency ? <span>{currencyList[currency]}</span> : ''}
         </span>
     )
-    //а если по-человечески, то
-    //return <span>{(value).toLocaleString("ru-RU",{style:'currency', currency: currency})}</span>
 }
 
 export default Money;

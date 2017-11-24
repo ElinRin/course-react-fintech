@@ -8,14 +8,14 @@ describe('CreateAccount', () => {
   /*
   * Необходимо создать страницу, на которой будет реализована возможность создания нового аккаунта
   * Нужно добавить форму на странице.
-  * Мы будем прокидывать функцию createAcoount на страницу, которая должна вызваться с данными. Если форма валидна
+  * Мы будем прокидывать функцию createAccount на страницу, которая должна вызваться с данными. Если форма валидна
   * */
   let component;
   let handleSubmit;
 
   beforeEach(() => {
     handleSubmit = jest.fn();
-    component = mount(<CreateAccount createAcoount={handleSubmit} />);
+    component = mount(<CreateAccount createAccount={handleSubmit} />);
   });
 
   describe('Поле name', () => {

@@ -1,27 +1,34 @@
 import React from 'react';
+import PropTypes from 'prop-types'
+import './Money.css';
 
-const Money = ({value, currency}) => {
-    
-    const currencyList = {
-        RUB: '₽',
-        EUR: '€',
-        GBP: '£',
-        USD: '$'
-    }
+const currencies = {
+  RUB: '₽',
+  EUR: '€',
+  GBP: '£',
+  USD: '$'
+};
 
-    let integer = ~~value;
-    let fraction = "" + value;
-    const index = fraction.indexOf(".");
-    fraction = fraction.slice(index + 1 );
-    fraction = integer === value ? '' : fraction;
+const Money = ({ value, currency }) => {
+  const [amount, smalls] = String(value).split('.');
+  const currencySymbol = currencies[currency];
 
-    return (
-        <span>
-            <span>{integer}</span>
-            {fraction ? <span>,{fraction}</span> : ""}
-            {currency ? <span>{currencyList[currency]}</span> : ''}
-        </span>
-    )
-}
+  return (
+    <span className='Money'>
+      <span>{amount}</span>
+      {smalls ? <span className='Money__smalls'>,{smalls}</span> : null}
+      {currencySymbol ? <span>&nbsp;{currencySymbol}</span> : null}
+    </span>
+  );
+};
 
-export default Money;
+Money.propTypes = {
+  value: PropTypes.number.isRequired,
+  currency: PropTypes.string
+};
+
+Money.defaultProps = {
+  currency: 'RUB'
+};
+
+export default Money

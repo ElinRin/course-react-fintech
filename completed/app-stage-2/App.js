@@ -4,7 +4,6 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import Home from '../pages/Home';
 import Account from '../pages/Account';
 import CreateAccount from '../pages/CreateAccount';
-import About from '../pages/About';
 
 import database from '../services/database';
 
@@ -30,15 +29,6 @@ class App extends Component {
     database.ref('operations').push(order);
   };
 
-  createAccount = (newState) => {
-    this.setState({
-      accounts: {
-        ...this.state.accounts,
-        [Object.keys(this.state.accounts).length + 1]: newState
-      }
-    });
-  }
-
   componentDidMount() {
     const operationsRef = database.ref('operations');
 
@@ -57,19 +47,15 @@ class App extends Component {
         <div className="App">
           <div className='App__layout'>
             <div className='App_sidebar'>
-              <Sidebar accounts={this.state.accounts} />
+              <Sidebar />
             </div>
             <div className='App__content'>
               <Route exact path='/' component={Home} />
-              <Route exact path='/about' component={About} />
               <Route
                 path='/account/:accountId'
                 component={() => <Account operations={this.state.operations} onSubmit={this.handleSubmit}/>}
               />
-              <Route 
-                path='/create-account' 
-                component={() => <CreateAccount createAccount={this.createAccount}/>}
-              />
+              <Route path='/create-account' component={CreateAccount} />
             </div>
           </div>
         </div>

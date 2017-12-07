@@ -2,9 +2,11 @@
   "name": "cource-react-finteh",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ElinRin.github.io/course-react-fintech",
   "dependencies": {
     "classnames": "^2.2.5",
     "firebase": "^4.6.2",
+    "gh-pages": "^1.1.0",
     "normalizr": "^3.2.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -25,7 +27,9 @@
     "cli": "npm run test:cli && npm run lint:js",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
-    "prepush": "npm run test:cli"
+    "prepush": "npm run test:cli",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "lint-staged": {
     "*.@(js|jsx)": "eslint --quiet"

@@ -7,12 +7,11 @@ import {
   NavLink
 } from 'react-router-dom';
 
-import {getAccountsWithAmount} from '../../selectors';
-
 import './Sidebar.css';
 
 const Sidebar = ({ accounts }) => {
   const accountKeys = Object.keys(accounts);
+
   return (
     <div className='Sidebar'>
       <div className='Sidebar__header'>
@@ -52,7 +51,7 @@ Sidebar.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  accounts: getAccountsWithAmount(state.accounts, state.operations)
+  accounts: state.accounts
 });
 
 
